@@ -22,10 +22,6 @@ class customController extends Controller
         }else{
             return response()->json(['message'=>'producto no encontrado']);
         }
-
-   
-
-     
      }
 
 
@@ -33,12 +29,12 @@ class customController extends Controller
     {
         $clientes = Customer::all(); 
         return view('sisven.client', compact('clientes'));
-        
     }
+    
     public function edit(string $id)
     {
         $clientes=Customer::findOrFail($id);
-        return view('sisven.clienteEditar', compact('clientes'));
+        return view('sisven.clienteEditar',compact('clientes'));
 
     }
     
@@ -71,32 +67,33 @@ class customController extends Controller
    
     public function create()
     {
-        //
+        return view('sisven.createclient');
+        
     }
 
     
     public function store(Request $request)
     {
-        //
+        $valited=$request->validate([
+            'document_number'=>'required|numeric',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'address'=>'required',
+            'Date_of_birth'=>'required|date',
+            'phone_number'=>'required|numeric',
+            'email'=>'required'
+        ]);
+        Customer::create($valited);
+        return redirect()->route('clientes.index');
+        
+
     }
 
   
     public function show(string $id)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    
-
-    /**
-     * Update the specified resource in storage.
-     */
-   
-    /**
-     * Remove the specified resource from storage.
-     */
    
 }

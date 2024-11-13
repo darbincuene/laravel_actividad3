@@ -41,6 +41,21 @@ class productoController extends Controller
         $categories=category::all();
         return view('sisven.create',compact('categories'));
     }
+    
+    public function store(Request $request)
+    {
+        $valited =$request->validate([
+            'name' => 'required',
+            'price'=> 'required',
+            'stok'=>'required',
+            'category_id'=>'required | exists:categories,id'
+
+        ]);
+        
+        producto::create($valited);
+       // dd($valited);
+        return redirect()->route('sisven.index')->with('info','producto creado con exito');
+    }
 
 
 
@@ -73,20 +88,7 @@ class productoController extends Controller
     }
    
     
-    public function store(Request $request)
-    {
-        $valited =$request->validate([
-            'name' => 'required',
-            'price'=> 'required',
-            'stok'=>'required',
-            'category_id'=>'required | exists:categories,id'
-
-        ]);
-        
-        producto::create($valited);
-       // dd($valited);
-        return redirect()->route('sisven.index')->with('info','producto creado con exito');
-    }
+   
 
     /**
      * Display the specified resource.
