@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\customer;
 use Illuminate\Http\Request;
 
 class customController extends Controller
@@ -11,7 +11,9 @@ class customController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Customer::all(); 
+        return view('sisven.client', compact('clientes'));
+        
     }
 
     /**

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\productoController;
-
+use App\Http\Controllers\customController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [productoController::class, 'index'])->name('sisven.index');
     Route::put('/products/{id}', [productoController::class, 'update'])->name('products.update');
     Route::get('/products/{id}/edit', [productoController::class, 'edit'])->name('products.edit');
+    Route::get('/clientes',[customController::class,'index'])->name('clientes.index');
 });
 
 require __DIR__.'/auth.php';
