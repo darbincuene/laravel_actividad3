@@ -23,7 +23,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [productoController::class, 'index'])->name('sisven.index');
     Route::put('/products/{id}', [productoController::class, 'update'])->name('products.update');
     Route::get('/products/{id}/edit', [productoController::class, 'edit'])->name('products.edit');
+    
     Route::get('/clientes',[customController::class,'index'])->name('clientes.index');
+    Route::get('/clientes/{id}/edit',[customController::class,'edit'])->name('clientes.edit');
+    Route::put ('/clientes/{id}',[customController::class,'update'])->name('clientes.update');
+    Route::delete('/client/{id}',[customController::class,'destroy'])->name('clientes.destroy');
 });
 
 require __DIR__.'/auth.php';
