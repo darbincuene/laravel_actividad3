@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\productoController;
 use App\Http\Controllers\customController;
+use App\Http\Controllers\invoiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,7 +33,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/clientes/{id}/edit',[customController::class,'edit'])->name('clientes.edit');
     Route::post('/clientes', [customController::class, 'store'])->name('clientes.store');
 
+    //////////////////////////////////////////////////custom
+    Route::get('/invoices', [invoiceController::class, 'index'])->name('sisven.facturas');
+    Route::get('/invoices/create', [invoiceController::class,'create'])->name('invoices.create');
+    Route::post('/invoices', [invoiceController::class, 'store'])->name('invoices.store');
 
+
+
+
+
+    ////////////////////////////////////////////////
     Route::put ('/clientes/{id}',[customController::class,'update'])->name('clientes.update');
     Route::delete('/client/{id}',[customController::class,'destroy'])->name('clientes.destroy');
     //Route::get('/clientes', [customController::class, 'store'])->name('clientes.store'); 

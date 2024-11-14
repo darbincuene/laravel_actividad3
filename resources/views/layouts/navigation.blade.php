@@ -43,6 +43,23 @@
                     </x-nav-link>
                 </div>
 
+               
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('sisven.facturas')" :active="request()->routeIs('sisven.facturas')">
+                        {{ __('Facturas') }}
+                    </x-nav-link>
+                </div>
+
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('invoices.create')" :active="request()->routeIs('invoices.create')">
+                        {{ __('crear clientes') }}
+                    </x-nav-link>
+                </div>
+
+                
+
 
              
             </div>

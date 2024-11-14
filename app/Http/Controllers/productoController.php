@@ -60,14 +60,11 @@ class productoController extends Controller
 
 
     public function edit(string $id)
-    {
-        
+    {   
         $productos = producto::findOrFail($id);
         $categories =category::all();
         return view('sisven.edit',compact('productos','categories'));
-       
     }
-
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -76,7 +73,6 @@ class productoController extends Controller
             'stok'=>'required|numeric',
             'category_id'=>'required|exists:categories,id'
         ]);
-
         $producto= producto::find($id);
         $producto->update([
             'name'=>$request->input ('name'),
@@ -87,29 +83,8 @@ class productoController extends Controller
         return redirect()->route('sisven.index');
     }
    
-    
-   
-
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    
-
-    /**
-     * Update the specified resource in storage.
-     */
-    
-
-    /**
-     * Remove the specified resource from storage.
-     */
     
 }
