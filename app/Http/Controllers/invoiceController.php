@@ -16,6 +16,13 @@ class invoiceController extends Controller
 
     }
 
+    public function show(string $id)
+    {
+        $invoices=Invoice::with(['customer','paymode'])->findOrFail($id);
+        return view('sisven.invoiceDetail',compact('invoices'));
+
+
+    }
     
     public function create()
     {
@@ -41,10 +48,7 @@ class invoiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

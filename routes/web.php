@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/invoices', [invoiceController::class, 'index'])->name('sisven.facturas');
     Route::get('/invoices/create', [invoiceController::class,'create'])->name('invoices.create');
     Route::post('/invoices', [invoiceController::class, 'store'])->name('invoices.store');
+    Route::get('/invoices/{id}', [invoiceController::class, 'show'])->name('invoices.show');
 
 
 

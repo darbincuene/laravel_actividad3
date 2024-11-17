@@ -28,18 +28,15 @@
                     <td class="border border-zinc-950 w-40 text-center">{{ $invoice->customer->first_name }} {{ $invoice->customer->last_name }}</td>
                     <td class="border border-zinc-950 w-40 text-center">{{ $invoice->date }}</td>
                     <td class="border border-zinc-950 w-32 text-center">{{ $invoice->paymode->name }}</td>
-                    {{-- <td>
-                        <a href="" class="btn btn-warning btn-sm">Editar</a>
-                        <form action="{{ route('', $invoice->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
-                    </td> --}}
-                </tr>
+                    <td class="border border-zinc-950 w-32 text-center">
+                    <a href="{{ route('invoices.show',$invoice->id) }}">
+                         Ver Detalle
+                    </a>
+                    </td>
+
             @endforeach
         </tbody>
-    </table>
+                </table>
    
     
 </div>

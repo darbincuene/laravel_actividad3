@@ -23,8 +23,6 @@
                                 <span class="text-red-500 text-xs">{{ $message }}</span>
                             @enderror
                         </div>
-
-                        <!-- Cliente -->
                         <div class="form-group">
                             <label for="customer_id" class="block text-sm font-medium text-gray-700">Cliente</label>
                             <select id="customer_id" name="customer_id"
@@ -41,8 +39,6 @@
                                 <span class="text-red-500 text-xs">{{ $message }}</span>
                             @enderror
                         </div>
-
-                        <!-- Fecha de la Factura -->
                         <div class="form-group">
                             <label for="date" class="block text-sm font-medium text-gray-700">Fecha de la Factura</label>
                             <input type="date" id="date" name="date" value="{{ old('date') }}"

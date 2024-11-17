@@ -54,7 +54,7 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('invoices.create')" :active="request()->routeIs('invoices.create')">
-                        {{ __('crear clientes') }}
+                        {{ __('crear Facturas') }}
                     </x-nav-link>
                 </div>
 
