@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\invoice;
 use App\Models\paymode;
 use App\Models\customer;
+use App\Models\detail;
 use Illuminate\Http\Request;
 
 class invoiceController extends Controller
@@ -18,12 +19,11 @@ class invoiceController extends Controller
 
     public function show(string $id)
     {
-        $invoices=Invoice::with(['customer','paymode'])->findOrFail($id);
-        return view('sisven.invoiceDetail',compact('invoices'));
-
-
+        $details = Detail::with('product', 'invoice.customer', 'invoice.paymode')
+            ->where('invoices_id', $id)
+            ->get();
+        return view('sisven.invoiceDetail', compact('details'));
     }
-    
     public function create()
     {
         $paymodes = paymode::all();
