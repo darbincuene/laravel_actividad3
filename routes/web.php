@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\productoController;
 use App\Http\Controllers\customController;
 use App\Http\Controllers\invoiceController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -38,6 +39,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/invoices/create', [invoiceController::class,'create'])->name('invoices.create');
     Route::post('/invoices', [invoiceController::class, 'store'])->name('invoices.store');
     Route::get('/invoices/{id}', [invoiceController::class, 'show'])->name('invoices.show');
+    ///////////////
+
+    Route::resource('/images',ImageController::class);
 
 
 
