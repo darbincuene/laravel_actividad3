@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/invoices/{id}', [invoiceController::class, 'show'])->name('invoices.show');
     ///////////////
 
-    Route::resource('/images',ImageController::class);
+    Route::resource('/images',ImageController::class);/// crea toadas la rutas automaticamente get,post,delete,update
 
 
 
